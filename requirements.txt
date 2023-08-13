@@ -1,0 +1,10 @@
+accelerate==0.21.0
+evaluate==0.4.0
+numpy==1.21.5
+pandas==1.4.2
+peft==0.4.0
+rouge-score==0.1.2
+sentencepiece==0.1.96
+torch==2.0.1
+tqdm==4.64.0
+transformers==4.20.1
