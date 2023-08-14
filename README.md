@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/PyTorch-2.0-orange.svg)
 
 # MedQSum
-This GitHub repository presents the code source of our paper "**Paper Title**", which introduces a solution to get the most out of LLM, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
+This GitHub repository presents the code source of our paper "**[Paper Title]()**", which introduces a solution to get the most out of LLM, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
 
 ### Datasets
 To fine-tune and evaluate our implemented models, we used three question summarization datasets:
@@ -22,7 +22,7 @@ To fine-tune and evaluate our implemented models, we used three question summari
 Our implemented models were fine-tuned using the following architecture:
 
 <p align="center">
-  <img src="./assets/models.png" style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);" />
+      <img src="./assets/models.png" style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);" />
 </p>
 
 ### Results
@@ -82,7 +82,7 @@ python train.py \
       --model_checkpoint facebook/bart-large-xsum     # HF Model checkpoint
 ```
 
-### Ineference
+### Inference
 To perform inference and generate an intelligible CHQ, use the following command with your custom configuration.
 
 ```bash
@@ -108,7 +108,7 @@ If you are using this repo's code for your reseach work, please cite our paper:
 ``` -->
 
 ### Contact Us
-For help or issues using the paper's code, please submit a GitHub **[issue](https://github.com/zekaouinoureddine/MedQSum/issues)**. For personal communication related to the paper, please contact: `{nour-eddine.zekaoui}@esi.ac.ma`.
+For help or issues using the paper's code, please submit a GitHub **[issue](https://github.com/zekaouinoureddine/MedQSum/issues)**. For personal communication related to the paper, please contact: `{nour-eddine.zekaoui, syousfi, mmikram, mrhanoui}@esi.ac.ma`.
 
 > If you like it, give it a ⭐, then follow me on:
 > - LinkedIn: [Nour Eddine ZEKAOUI](https://www.linkedin.com/in/nour-eddine-zekaoui-ba43b1177/)
