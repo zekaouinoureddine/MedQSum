@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/PyTorch-2.0-orange.svg)
 
 # MedQSum
-This GitHub repository presents the code source of our paper "**[Paper Title]()**", which introduces a solution to get the most out of LLM, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
+This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models Utility for Medical Question-Answering: A Patient Health Question Summarization Approach]()**", which introduces a solution to get the most out of LLM, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
 
 ### Datasets
 To fine-tune and evaluate our implemented models, we used three question summarization datasets:
