@@ -16,6 +16,25 @@ from torch.utils.data import DataLoader
 
 
 def run(train_data_path, test_data_path, train_bach_size, valid_bach_size, device, lr, epochs, model_checkpoint, model_path):
+    
+    """
+    Train and validate the medical question summarization model.
+
+    Args:
+        train_data_path (str): Path to the training data JSON file.
+        test_data_path (str): Path to the test data JSON file.
+        train_batch_size (int): Batch size for training.
+        valid_batch_size (int): Batch size for validation.
+        device (str): Device to run the training on (e.g., 'cuda' or 'cpu').
+        lr (float): Learning rate for optimization.
+        epochs (int): Number of training epochs.
+        model_checkpoint (str): Pretrained model checkpoint name.
+        model_path (str): Path to save the best model checkpoint.
+
+    Returns:
+        decoded_preds (list): Decoded predictions from the model.
+        decoded_labels (list): Decoded labels for validation data.
+    """
 
     train_df = pd.read_json(train_data_path)[:4]
     test_df = pd.read_json(test_data_path)[:1]

@@ -75,9 +75,3 @@ class MedQSumConfig:
 
         else:
             raise ValueError(f"Model checkpoint '{model_checkpoint}' not recognized.")
-
-
-
-if __name__ == "__main__":
-    model_checkpoint = "facebook/bart-large-xsum"  # Choose your desired model checkpoint
-    config = MedQSumConfig(model_checkpoint)

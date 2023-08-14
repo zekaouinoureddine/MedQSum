@@ -7,7 +7,7 @@ import torch
 
 
 
-def get_important_paragh(chq_text, model, chq_max_len, tokenizer, device):
+def generate_summary(chq_text, model, chq_max_len, tokenizer, device):
   data = Process(chq_text, chq_max_len, tokenizer)
   input_ids, attention_mask = data.pre_process()
   input_ids = input_ids.to(device)
@@ -24,11 +24,11 @@ def get_important_paragh(chq_text, model, chq_max_len, tokenizer, device):
         early_stopping=True,
     )
 
-  predicted_sum = data.post_process(generated_ids)
-  return predicted_sum
+  generated_summary = data.post_process(generated_ids)
+  return generated_summary
 
 
-def generate_summary(model_checkpoint, chq):
+def run_inference(model_checkpoint, chq):
     config = MedQSumConfig(model_checkpoint)
 
     model = MedQSumModel(model=config.model)
@@ -40,8 +40,8 @@ def generate_summary(model_checkpoint, chq):
         )
     )
 
-    predicted_sum = get_important_paragh(chq, model, config.chq_max_len, config.tokenizer, config.device)
-    print(predicted_sum)
+    generated_summary = generate_summary(chq, model, config.chq_max_len, config.tokenizer, config.device)
+    return generated_summary
 
 
 
@@ -52,6 +52,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_chq_text", type=str, default="", help="Input text for summarization.")
     args = parser.parse_args()
 
-    generate_summary(args.model_checkpoint, args.input_chq_text)
+    generated_summary = run_inference(args.model_checkpoint, args.input_chq_text)
+    print(generated_summary)
 
 

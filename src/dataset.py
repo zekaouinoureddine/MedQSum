@@ -1,15 +1,18 @@
+from utils import add_prefix
+
 import torch
 from torch.utils.data import Dataset
 
 
 
 class MedQSumDataset(Dataset):
-    def __init__(self, chq, summary, tokenizer, chq_max_len, sum_max_len):
+    def __init__(self, chq, summary, tokenizer, chq_max_len, sum_max_len, use_insruction=False):
         self.chq = chq
         self.summary = summary
         self.tokenizer = tokenizer
         self.chq_max_len = chq_max_len
         self.sum_max_len = sum_max_len
+        self.use_insruction = use_insruction
 
     
     def __len__(self):
@@ -17,8 +20,14 @@ class MedQSumDataset(Dataset):
     
 
     def __getitem__(self, index):
-        chq = str(self.chq[index])
-        summary = str(self.summary[index])
+
+        # Determine whether to use instruction fine-tuning or not
+        if self.use_insruction:
+            chq = str(add_prefix(self.chq[index]))
+            summary = str(add_prefix(self.summary[index]))
+        else:
+            chq = str(self.chq[index])
+            summary = str(self.summary[index])
 
         chq = " ".join(chq.split())
         summary = " ".join(summary.split())
