@@ -4,15 +4,14 @@ import torch
 from torch.utils.data import Dataset
 
 
-
 class MedQSumDataset(Dataset):
-    def __init__(self, chq, summary, tokenizer, chq_max_len, sum_max_len, use_insruction=False):
+    def __init__(self, chq, summary, tokenizer, chq_max_len, sum_max_len, use_instruction=False):
         self.chq = chq
         self.summary = summary
         self.tokenizer = tokenizer
         self.chq_max_len = chq_max_len
         self.sum_max_len = sum_max_len
-        self.use_insruction = use_insruction
+        self.use_instruction = use_instruction
 
     
     def __len__(self):
@@ -22,7 +21,7 @@ class MedQSumDataset(Dataset):
     def __getitem__(self, index):
 
         # Determine whether to use instruction fine-tuning or not
-        if self.use_insruction:
+        if self.use_instruction:
             chq = str(add_prefix(self.chq[index]))
             summary = str(add_prefix(self.summary[index]))
         else:

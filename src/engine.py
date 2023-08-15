@@ -4,7 +4,6 @@ import torch
 from tqdm import tqdm
 
 
-
 def train_fn(train_dataloader, model, optimizer, device):
     model.train()
     final_loss = 0
@@ -27,7 +26,6 @@ def train_fn(train_dataloader, model, optimizer, device):
         optimizer.zero_grad()
     
     return final_loss/len(train_dataloader)
-
 
 
 def eval_fn(valid_dataloader, model, device, tokenizer):

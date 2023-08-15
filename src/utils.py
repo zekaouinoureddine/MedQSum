@@ -8,4 +8,4 @@ def get_rouge_scores(predictions, references):
 
 
 def add_prefix(chq):
-  return "summarize: " + chq
+  return "Summarize: " + chq

@@ -7,7 +7,6 @@ from transformers import  BartForConditionalGeneration, BartTokenizer
 from transformers import  PegasusForConditionalGeneration, PegasusTokenizer
 
 
-
 GENERATIVE_CONFIGURATION = {
     "do_sample":True,
     "top_p":0.9,
@@ -19,13 +18,13 @@ GENERATIVE_CONFIGURATION = {
 
 class MedQSumConfig:
     def __init__(self, 
-                model_checkpoint="facebook/bart-large-xsum", 
-                chq_max_len=384, 
-                sum_max_len=32, 
-                train_batch_size=4, 
-                valid_batch_size=4,
-                learning_rate=3e-5, 
-                epochs=4):
+                model_checkpoint: str = "facebook/bart-large-xsum", 
+                chq_max_len: int = 384, 
+                sum_max_len: int = 32, 
+                train_batch_size: int = 4, 
+                valid_batch_size: int = 4,
+                learning_rate: float = 3e-5, 
+                epochs: int = 4):
         
         self.model_checkpoint = model_checkpoint
         self.chq_max_len = chq_max_len
@@ -35,7 +34,7 @@ class MedQSumConfig:
         self.learning_rate = learning_rate
         self.epochs = epochs
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.model_path = f"./output/sum_model.bin"
+        self.model_path = f"./output/medqsum_model.bin"
         
         if model_checkpoint == "facebook/bart-large-xsum":
             self.tokenizer = BartTokenizer.from_pretrained(model_checkpoint)
