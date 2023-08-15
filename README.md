@@ -2,31 +2,26 @@
 ![](https://img.shields.io/badge/PyTorch-2.0-orange.svg)
 
 # MedQSum
-This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models Utility for Medical Question-Answering: A Patient Health Question Summarization Approach]()**", which introduces a solution to get the most out of LLM, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
+Welcome to the MedQSum repository! This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models' Utility for Medical Question-Answering: A Patient Health Question Summarization Approach]()**", which introduces a solution to get the most out of LLMs, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
 
-### Datasets
-To fine-tune and evaluate our implemented models, we used three question summarization datasets:
+## Datasets
+To fine-tune and evaluate our models, we utilize three question summarization datasets:
 
-
-
-
-| Dataset  | Reference                                                        | Examples | Download                    | comments         |
+| Dataset  | Reference                                                        | Examples | Download                    | Comments         |
 |:--------:|:----------------------------------------------------------------:|:--------:|:---------------------------:|:----------------:|
 | MeQ-Sum  | [Asma Ben Abacha et al](https://aclanthology.org/P19-1215/)      | 1000     | [download](./data/meq_sum/) |                  |
 | HCM      | [Khalil Mrini et al](https://aclanthology.org/2021.bionlp-1.28/) | 1643     | [download](./data/hcm_sum/) |                  |
 | CHQ-Summ | [Shweta Yadav et al](https://arxiv.org/abs/2206.06581)           | 1507     | [download](./data/chq_sum/) | 693 examples were chosen as outlined [here](https://github.com/shwetanlp/Yahoo-CHQ-Summ#data-preparation) |
 
-
-
-### MedQSum Arch.
-Our implemented models were fine-tuned using the following architecture:
+## MedQSum Architecture
+Our implemented models undergo fine-tuning using the following architecture:
 
 <p align="center">
       <img src="./assets/models.png" style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);" />
 </p>
 
-### Results
-The main validation results of fine-Tuned models for question summarization on three diverse datasets:
+## Results
+We present the validation results of our fine-tuned models for question summarization across three diverse datasets:
 
 | Dataset | Model                  | R-1    | R-2    | R-L    | R-L-SUM |
 |---------|------------------------|--------|--------|--------|---------|
@@ -52,8 +47,7 @@ The main validation results of fine-Tuned models for question summarization on t
 |            | Flan-T5 XXL         | 42.69* | 23.28  | 40.88* | 40.87*  |
 
 
-
-Ablations results showcasing the effects of generative configuration choices and instruction iine-Tuning on the MeQ-Sum dataset
+We also present ablation results demonstrating the effects of generative configuration choices and instruction fine-tuning on the [MeQ-Sum](./data/meq_sum/) dataset:
 
 | Model                                                   | R-1   | R-2   | R-L   | R-L-SUM |
 |---------------------------------------------------------|-------|-------|-------|---------|
@@ -62,54 +56,57 @@ Ablations results showcasing the effects of generative configuration choices and
 | BART Large XSum                                         | 50.76 | 33.94 | 48.87 | 48.83   |
 | BART Large XSum (top_p=.95, top_k=50, and temp.=.6)     | 54.32*| 38.08*| 51.98*| 51.99*  |
 
+## Getting Started
+#### Repository Cloning
+```bash
+git clone https://github.com/zekaouinoureddine/MedQSum.git
+```
 
-### Requirements
-The code requires Python3 and the following dependencies:
-
+#### Requirements
+Ensure that you have Python 3 installed, along with the necessary dependencies. You can install the dependencies using the provided requirements.txt file:
 ```bash
 pip install requirements.txt
 ```
 
-### Fine-tuning
-To fine-tune our implemented models and reproduce the results, copy and paste the following command:
+#### Models Fine-Tuning
+To fine-tune our implemented models and reproduce the results. Navigate to the source code directory with `cd src`, and execute the following command. Make sure to customize file paths and adjust parameters according to your specific requirements.
 
 ```bash
 python train.py \
-      --train_data_path ../data/meq_sum/train.json \  # Training data
-      --valid_data_path ../data/meq_sum/valid.json \  # Validation data
-      --lr 3e-5 \                                     # Learning rate
-      --epochs 1 \                                    # Epochs
-      --model_checkpoint facebook/bart-large-xsum     # HF Model checkpoint
+      --train_data_path ../data/meq_sum/train.json \
+      --valid_data_path ../data/meq_sum/valid.json \
+      --lr 3e-5 \
+      --epochs 4 \
+      --model_checkpoint facebook/bart-large-xsum
 ```
 
-### Inference
-To perform inference and generate an intelligible CHQ, use the following command with your custom configuration.
-
+#### Inference
 ```bash
-python inference.py 
-      --model_checkpoint t5-base \                   # Choose the saved model via its Hugging Face checkpoint
-      --input_chq_text "type your CHQ input text" \  # Input text
+python inference.py \
+      --model_checkpoint t5-base \
+      --input_chq_text "Type your CHQ input text"
 ```
 
 
 <!-- ### Cite Us
-If you are using this repo's code for your reseach work, please cite our paper:
+If you are using this repository's code for your reseach work, please cite our paper:
 
 ```
-@article{
-    author = {Nour Eddine Zekaoui},
+@proceedings{
+    author = {Nour Eddine Zekaoui and Siham Yousfi and Mounia Mikram and Maryem Rhanoui},
     title = {},
-    journal
+    booktitle = {}
     year = {2023},
     month = {},
-    doi = {}
+    doi = {},
     url = {}
 }
 ``` -->
 
-### Contact Us
+## Contact
 For help or issues using the paper's code, please submit a GitHub **[issue](https://github.com/zekaouinoureddine/MedQSum/issues)**. For personal communication related to the paper, please contact: `{nour-eddine.zekaoui, syousfi, mmikram, mrhanoui}@esi.ac.ma`.
 
+---
 > If you like it, give it a ⭐, then follow me on:
 > - LinkedIn: [Nour Eddine ZEKAOUI](https://www.linkedin.com/in/nour-eddine-zekaoui-ba43b1177/)
 > - Twitter: [@NZekaoui](https://twitter.com/NZekaoui)

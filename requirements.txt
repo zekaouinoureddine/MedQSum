@@ -8,3 +8,4 @@ sentencepiece==0.1.96
 torch==2.0.1
 tqdm==4.64.0
 transformers==4.20.1
+wandb==0.15.8
