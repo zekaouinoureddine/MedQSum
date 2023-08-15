@@ -65,7 +65,7 @@ git clone https://github.com/zekaouinoureddine/MedQSum.git
 #### Requirements
 Ensure that you have Python 3 installed, along with the necessary dependencies. You can install the dependencies using the provided requirements.txt file:
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 #### Models Fine-Tuning
