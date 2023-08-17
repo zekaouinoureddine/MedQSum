@@ -11,7 +11,7 @@ To fine-tune and evaluate our models, we utilize three question summarization da
 |:--------:|:----------------------------------------------------------------:|:--------:|:---------------------------:|:----------------:|
 | MeQ-Sum  | [Asma Ben Abacha et al](https://aclanthology.org/P19-1215/)      | 1000     | [download](./data/meq_sum/) |                  |
 | HCM      | [Khalil Mrini et al](https://aclanthology.org/2021.bionlp-1.28/) | 1643     | [download](./data/hcm_sum/) |                  |
-| CHQ-Summ | [Shweta Yadav et al](https://arxiv.org/abs/2206.06581)           | 1507     | [download](./data/chq_sum/) | 693 examples were chosen as outlined [here](https://github.com/shwetanlp/Yahoo-CHQ-Summ#data-preparation) |
+| CHQ-Summ | [Shweta Yadav et al](https://arxiv.org/abs/2206.06581)           | 1507     | [download](./data/chq_sum/) | 693 examples were used as outlined [here](https://github.com/shwetanlp/Yahoo-CHQ-Summ#data-preparation) |
 
 ## MedQSum Architecture
 Our implemented models undergo fine-tuning using the following architecture:
@@ -58,12 +58,15 @@ We also present ablation results demonstrating the effects of generative configu
 
 ## Getting Started
 #### Repository Cloning
+To get started, clone the repository to your environment using the following command:
+
 ```bash
 git clone https://github.com/zekaouinoureddine/MedQSum.git
 ```
 
 #### Requirements
 Ensure that you have Python 3 installed, along with the necessary dependencies. You can install the dependencies using the provided requirements.txt file:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -75,18 +78,28 @@ To fine-tune our implemented models and reproduce the results. Navigate to the s
 python train.py \
       --train_data_path ../data/meq_sum/train.json \
       --valid_data_path ../data/meq_sum/valid.json \
+      --train_batch_size 4 \
+      --valid_batch_size 4 \
       --lr 3e-5 \
       --epochs 4 \
+      --device cuda \
+      --chq_max_len 382 \
+      --sum_max_len 32 \
       --model_checkpoint facebook/bart-large-xsum
+      --use_instruction False \
+      --model_path ./output/medqsm.bin
 ```
 
 #### Inference
+To do inference and create an understandable CHQ, use this command with your own configuration.
+
 ```bash
 python inference.py \
-      --model_checkpoint t5-base \
-      --input_chq_text "Type your CHQ input text"
+      --model_checkpoint facebook/bart-large-xsum \
+      --chq_max_len 384 \
+      --input_chq_text Type your CHQ input text \
+      --device cuda \
 ```
-
 
 <!-- ### Cite Us
 If you are using this repository's code for your reseach work, please cite our paper:
@@ -94,12 +107,12 @@ If you are using this repository's code for your reseach work, please cite our p
 ```
 @proceedings{
     author = {Nour Eddine Zekaoui and Siham Yousfi and Mounia Mikram and Maryem Rhanoui},
-    title = {},
-    booktitle = {}
+    title = {Enhancing Large Language Models’ Utility for Medical Question-Answering: A Patient Health Question Summarization Approach},
+    booktitle = {IEEE SITA 2023 Conference},
     year = {2023},
-    month = {},
+    month = {Oct},
     doi = {},
-    url = {}
+    url = {},
 }
 ``` -->
 
