@@ -98,7 +98,7 @@ python inference.py \
       --model_checkpoint facebook/bart-large-xsum \
       --chq_max_len 384 \
       --input_chq_text Type your CHQ input text \
-      --device cuda \
+      --device cuda
 ```
 
 <!-- ### Cite Us
