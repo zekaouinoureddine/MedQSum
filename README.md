@@ -85,7 +85,7 @@ python train.py \
       --device cuda \
       --chq_max_len 382 \
       --sum_max_len 32 \
-      --model_checkpoint facebook/bart-large-xsum
+      --model_checkpoint facebook/bart-large-xsum \
       --use_instruction False \
       --model_path ./output/medqsm.bin
 ```
