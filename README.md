@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/PyTorch-2.0-orange.svg)
 
 # MedQSum
-Welcome to the MedQSum repository! This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models' Utility for Medical Question-Answering: A Patient Health Question Summarization Approach]()**", which introduces a solution to get the most out of LLMs, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
+Welcome to the MedQSum repository! This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models' Utility for Medical Question-Answering: A Patient Health Question Summarization Approach](http://dx.doi.org/10.1109/SITA60746.2023.10373720)**", which introduces a solution to get the most out of LLMs, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
 
 ## Datasets
 To fine-tune and evaluate our models, we utilize three question summarization datasets:
@@ -101,20 +101,20 @@ python inference.py \
       --device cuda
 ```
 
-<!-- ### Cite Us
+### Cite Us
 If you are using this repository's code for your reseach work, please cite our paper:
 
 ```
-@proceedings{
-    author = {Nour Eddine Zekaoui and Siham Yousfi and Mounia Mikram and Maryem Rhanoui},
-    title = {Enhancing Large Language Models’ Utility for Medical Question-Answering: A Patient Health Question Summarization Approach},
-    booktitle = {IEEE SITA 2023 Conference},
-    year = {2023},
-    month = {Oct},
-    doi = {},
-    url = {},
-}
-``` -->
+@INPROCEEDINGS{10373720,
+  author={Zekaoui, Nour Eddine and Yousfi, Siham and Mikram, Mounia and Rhanoui, Maryem},
+  booktitle={2023 14th International Conference on Intelligent Systems: Theories and Applications (SITA)}, 
+  title={Enhancing Large Language Models’ Utility for Medical Question-Answering: A Patient Health Question Summarization Approach}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-8},
+  doi={10.1109/SITA60746.2023.10373720}}
+```
 
 ## Contact
 For help or issues using the paper's code, please submit a GitHub **[issue](https://github.com/zekaouinoureddine/MedQSum/issues)**. For personal communication related to the paper, please contact: `{nour-eddine.zekaoui, syousfi, mmikram, mrhanoui}@esi.ac.ma`.
