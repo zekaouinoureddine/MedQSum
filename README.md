@@ -1,5 +1,9 @@
 ![](https://img.shields.io/badge/Python-3.10-brightgreen.svg)
 ![](https://img.shields.io/badge/PyTorch-2.0-orange.svg)
+[![](https://img.shields.io/badge/IEEE-10373720-blue)](http://dx.doi.org/10.1109/SITA60746.2023.10373720)
+[![](https://img.shields.io/badge/🤗_Hugging_Face-MEDQSUM-orange)](https://huggingface.co/NouRed/medqsum-bart-large-xsum-meqsum)
+[![Open in Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-md-dark.svg)](https://huggingface.co/spaces/NouRed/MEDQSUM)
+
 
 # MedQSum
 Welcome to the MedQSum repository! This GitHub repository presents the code source of our paper "**[Enhancing Large Language Models' Utility for Medical Question-Answering: A Patient Health Question Summarization Approach](http://dx.doi.org/10.1109/SITA60746.2023.10373720)**", which introduces a solution to get the most out of LLMs, when answering health-related questions. We address the challenge of crafting accurate prompts by summarizing consumer health questions (CHQs) to generate clear and concise medical questions. Our approach involves fine-tuning Transformer-based models, including Flan-T5 in resource-constrained environments and three medical question summarization datasets.
